@@ -65,7 +65,7 @@ yarn near login
 ```
 
 This will redirect you to NEAR wallet and you will be asked to grant permissions to the near-cli to access your account. give permission to the app in order to continue deployment.  
-If your install near-cli globally you don't need to prepend yarn into your commands.  
+If you install near-cli globally ( ` yarn add global near-cli` ) you don't need to use yarn for running near commands.  
 Because each near account can only have one contract deployed on it we create a sub-account for this smart contract
 
 ```bash
@@ -102,10 +102,10 @@ We give the buyer 5 NEAR initialBalance in order to buy some articles.
 
 ### Buy an article
 
-We have buyPost function in /assembly/index.ts with two parameters post, author that we want to call
+We have buyPost function in ./assembly/index.ts with two parameters post, author that we want to call
 
 ```bash
- yarn near call mycontract.myaccount.testnet buyPost '{ "post": "test", "author": "author.myaccount.testnet" }' --depositYocto=1000000000000000000000000 --accountId=guram.testnet
+ yarn near call mycontract.myaccount.testnet buyPost '{ "post": "test", "author": "author.myaccount.testnet" }' --depositYocto=1000000000000000000000000 --accountId=buyer.testnet
 ```
 
 We pay 1 NEAR for "test" article to the author. we specified the amount in Yocto which is 1/10^24 a NEAR token.  
